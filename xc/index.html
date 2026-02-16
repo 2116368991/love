@@ -221,7 +221,336 @@ body {
   </div>
    <div class="photo" data-index="16">
     <div class="photo__image"><img src="img/17.jpg" alt="照片17"/></div>
-    <div class="photo__name">空白待上传</div>
+    <div class="photo__name"><!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+<meta charset="UTF-8">
+<title>璇璇</title>
+<style>
+/* 重置默认样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  padding: 20px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+/* 瀑布流容器 */
+.gallery {
+  column-count: 4; /* 列数，可调整 */
+  column-gap: 15px; /* 列之间的间距 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 照片卡片 */
+.photo {
+  break-inside: avoid; /* 防止照片被列分割 */
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: white;
+  cursor: pointer; /* 鼠标移上去变手型，提示可点击 */
+}
+
+/* 照片图片 */
+.photo__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photo:hover .photo__image img {
+  transform: scale(1.02); /* hover轻微放大 */
+}
+
+/* 照片名称 */
+.photo__name {
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+/* 大图预览遮罩层 */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* 半透明黑色背景 */
+  display: none; /* 默认隐藏 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 确保在最上层 */
+  padding: 20px;
+}
+
+/* 大图容器 */
+.lightbox__content {
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+}
+
+/* 大图样式 */
+.lightbox__image {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  border-radius: 8px;
+}
+
+/* 关闭按钮 */
+.lightbox__close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* 左右切换按钮 */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none; /* 避免遮挡图片点击 */
+}
+
+.lightbox__prev, .lightbox__next {
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto; /* 恢复点击 */
+  border: none;
+}
+
+/* 响应式适配 */
+@media (max-width: 1024px) {
+  .gallery {
+    column-count: 3; /* 平板显示3列 */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    column-count: 2; /* 手机显示2列 */
+  }
+  .lightbox__prev, .lightbox__next {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 1; /* 小屏手机显示1列 */
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 照片画廊 -->
+<div class="gallery" id="photoGallery">
+  <!-- 1-20号照片示例（可无限新增） -->
+  <div class="photo" data-index="0">
+    <div class="photo__image"><img src="img/1.jpg" alt="照片1"/></div>
+    <div class="photo__name">✌️</div>
+  </div>
+  <div class="photo" data-index="1">
+    <div class="photo__image"><img src="img/2.jpg" alt="照片2"/></div>
+    <div class="photo__name">宝宝送的蜂蜜柚子茶🤤</div>
+  </div>
+  <div class="photo" data-index="2">
+    <div class="photo__image"><img src="img/3.jpg" alt="照片3"/></div>
+    <div class="photo__name">是草莓诶🍓</div>
+  </div>
+  <div class="photo" data-index="3">
+    <div class="photo__image"><img src="img/4.png" alt="照片4"/></div>
+    <div class="photo__name">鄙视我😒</div>
+  </div>
+  <div class="photo" data-index="4">
+    <div class="photo__image"><img src="img/5.jpg" alt="照片5"/></div>
+    <div class="photo__name">草莓印🍓</div>
+  </div>
+  <div class="photo" data-index="5">
+    <div class="photo__image"><img src="img/6.jpg" alt="照片6"/></div>
+    <div class="photo__name">嘿嘿hellokitty</div>
+  </div>
+  <div class="photo" data-index="6">
+    <div class="photo__image"><img src="img/7.jpg" alt="照片7"/></div>
+    <div class="photo__name">是宝宝亲手做的生日蛋糕😁</div>
+  </div>
+  <div class="photo" data-index="7">
+    <div class="photo__image"><img src="img/8.jpg" alt="照片8"/></div>
+    <div class="photo__name">全世界最好的宝宝陪我过生日😚</div>
+  </div>
+  <div class="photo" data-index="8">
+    <div class="photo__image"><img src="img/9.jpg" alt="照片9"/></div>
+    <div class="photo__name">我好幸福😊</div>
+  </div>
+  <div class="photo" data-index="9">
+    <div class="photo__image"><img src="img/10.jpg" alt="照片10"/></div>
+    <div class="photo__name">🤩</div>
+  </div>
+   <div class="photo" data-index="10">
+    <div class="photo__image"><img src="img/11.jpg" alt="照片11"/></div>
+    <div class="photo__name">最漂亮的宝宝🤯</div>
+  </div>
+   <div class="photo" data-index="11">
+    <div class="photo__image"><img src="img/12.jpg" alt="照片12"/></div>
+    <div class="photo__name">驱魔的宝宝😱</div>
+  </div>
+   <div class="photo" data-index="12">
+    <div class="photo__image"><img src="img/13.jpg" alt="照片13"/></div>
+    <div class="photo__name">臭美的宝宝🥶</div>
+  </div>
+   <div class="photo" data-index="13">
+    <div class="photo__image"><img src="img/14.jpg" alt="照片14"/></div>
+    <div class="photo__name">初中的宝宝🤩</div>
+  </div>
+   <div class="photo" data-index="14">
+    <div class="photo__image"><img src="img/15.jpg" alt="照片15"/></div>
+    <div class="photo__name">😴</div>
+  </div>
+   <div class="photo" data-index="15">
+    <div class="photo__image"><img src="img/16.jpg" alt="照片16"/></div>
+    <div class="photo__name">😴</div>
+  </div>
+   <div class="photo" data-index="16">
+    <div class="photo__image"><img src="img/17.jpg" alt="照片17"/></div>
+    <div class="photo__name">来自除夕新耳钉🆕</div>
+  </div>
+  <!-- 新增照片只需复制上面的photo块，改data-index和img数字即可 -->
+</div>
+
+<!-- 大图预览层 -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox__content">
+    <button class="lightbox__close" id="lightboxClose">&times;</button>
+    <img src="" alt="大图预览" class="lightbox__image" id="lightboxImage"/>
+    <div class="lightbox__nav">
+      <button class="lightbox__prev" id="lightboxPrev">&lsaquo;</button>
+      <button class="lightbox__next" id="lightboxNext">&rsaquo;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// 获取元素
+const gallery = document.getElementById('photoGallery');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+
+// 获取所有照片元素
+const photos = document.querySelectorAll('.photo');
+// 存储所有照片的路径
+const photoPaths = Array.from(photos).map(photo => {
+  return photo.querySelector('img').src;
+});
+// 当前显示的照片索引
+let currentIndex = 0;
+
+// 点击照片打开大图
+gallery.addEventListener('click', (e) => {
+  const photo = e.target.closest('.photo');
+  if (photo) {
+    // 获取当前照片索引
+    currentIndex = parseInt(photo.dataset.index);
+    // 设置大图路径
+    lightboxImage.src = photoPaths[currentIndex];
+    // 显示大图层
+    lightbox.style.display = 'flex';
+    // 禁止页面滚动
+    document.body.style.overflow = 'hidden';
+  }
+});
+
+// 关闭大图
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  // 恢复页面滚动
+  document.body.style.overflow = 'auto';
+}
+
+// 点击关闭按钮关闭
+lightboxClose.addEventListener('click', closeLightbox);
+
+// 点击空白处关闭
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+// 按ESC键关闭
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+    closeLightbox();
+  }
+});
+
+// 上一张
+lightboxPrev.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + photoPaths.length) % photoPaths.length;
+  lightboxImage.src = photoPaths[currentIndex];
+});
+
+// 下一张
+lightboxNext.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % photoPaths.length;
+  lightboxImage.src = photoPaths[currentIndex];
+});
+
+// 按左右方向键切换
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display === 'flex') {
+    if (e.key === 'ArrowLeft') {
+      lightboxPrev.click();
+    } else if (e.key === 'ArrowRight') {
+      lightboxNext.click();
+    }
+  }
+});
+
+// 新增照片时自动更新索引（可选，手动改也可以）
+function updatePhotoIndexes() {
+  photos.forEach((photo, index) => {
+    photo.dataset.index = index;
+  });
+  // 更新照片路径数组
+  photoPaths = Array.from(photos).map(photo => photo.querySelector('img').src);
+}
+</script>
+</div>
   </div>
   <!-- 新增照片只需复制上面的photo块，改data-index和img数字即可 -->
 </div>
