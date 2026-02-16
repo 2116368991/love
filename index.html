@@ -21,19 +21,32 @@
     </div>
     <div id="hitokoto">
       <script>
+        // 补全hitokoto函数避免报错（可根据需要修改文案）
+        function hitokoto() {
+          document.getElementById('hitokoto').innerText = "斯人若彩虹，遇上方知有～";
+        }
         hitokoto()
       </script>
     </div>
     <div class="custom">
       <div class="box">
         <font><span id="runtime_span"></span>
-          <script type="text/javascript">function show_runtime() {
-              window.setTimeout("show_runtime()", 1000); X = new
-                Date("@11/1/2025 12:22:00");
-              Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000;
-              a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60);
+          <script type="text/javascript">
+            function show_runtime() {
+              window.setTimeout("show_runtime()", 1000); 
+              // 修复：去掉日期前的@符号，避免解析错误
+              X = new Date("11/1/2025 12:22:00");
+              Y = new Date(); 
+              T = (Y.getTime() - X.getTime()); 
+              M = 24 * 60 * 60 * 1000;
+              a = T / M; A = Math.floor(a); 
+              b = (a - A) * 24; B = Math.floor(b); 
+              c = (b - B) * 60; C = Math.floor((b - B) * 60); 
+              D = Math.floor((c - C) * 60);
               runtime_span.innerHTML = "我们已经相爱了: " + A + "天" + B + "小时" + C + "分" + D + "秒"
-            } show_runtime();</script>
+            } 
+            show_runtime();
+          </script>
           <span id="span_dt"></span>
         </font>
       </div>
@@ -80,11 +93,13 @@
       </div>
     </div>
     <div class="foot">
+      <!-- 保留原有逻辑：秘密链接直接跳转 -->
       <font><a href="./wa/index.html" target="_blank"><i></i>秘密</a></font>
-      <font><a href="./xc/index.html" target="_blank"><i></i>相册</a></font>
-      <font><a href="./jl/demo.html" target="_blank"><i></i>我们</a></font> 
-
-      <!-- <font><a href="https://2116368991.github.io/quanauqn/" target="_blank"><i></i>关于我们</a></font> -->
+      <!-- 相册：添加密码验证 -->
+      <font><a href="javascript:void(0)" class="protected-link" data-url="./xc/index.html"><i></i>相册</a></font>
+      <!-- 我们：添加密码验证 -->
+      <font><a href="javascript:void(0)" class="protected-link" data-url="./jl/demo.html"><i></i>我们</a></font> 
+      <!-- 保留原有逻辑：留言板链接直接跳转 -->
       <font><a href="https://mp.weixin.qq.com/s/aGsn7phRwan28380NNlBDg" target="_blank"><i></i>留言板</a></font>
     </div>
     <div class="main">
@@ -114,12 +129,44 @@
     </div>
 
     <div class="footer">
-
       <a href="https://2116368991.github.io/quanquan/"><br><b>Copyright © 2026 By 爱你的权权</b><br> </a>
     </div>
     <audio autoplay>
       <source src="https://api.uomg.com/api/rand.music?sort=热歌榜" type="audio/mpeg">
     </audio>
+
+    <!-- 密码验证核心脚本 -->
+    <script>
+      // 1. 定义统一密码（可自行修改，比如改成你们的纪念日）
+      const CORRECT_PASSWORD = "1314";
+
+      // 2. 获取需要密码验证的链接（相册、我们）
+      const protectedLinks = document.querySelectorAll('.protected-link');
+
+      // 3. 给每个受保护链接绑定点击事件
+      protectedLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          // 弹出密码输入框
+          const userInput = prompt("💖 请输入解锁密码，查看专属回忆～");
+          
+          // 密码验证逻辑
+          if (userInput === CORRECT_PASSWORD) {
+            alert("密码正确✨ 正在为你打开专属回忆～");
+            // 获取跳转地址并跳转（延迟1秒增加体验感）
+            const targetUrl = this.getAttribute('data-url');
+            setTimeout(() => {
+              window.open(targetUrl, "_blank"); // 保持原有的新窗口打开逻辑
+            }, 1000);
+          } else if (userInput === null) {
+            // 用户点击取消
+            alert("你取消了输入，暂时无法查看哦～");
+          } else {
+            // 密码错误
+            alert("密码不对哦😜 再想想我们的专属密码～");
+          }
+        });
+      });
+    </script>
 </body>
 
 </html>
