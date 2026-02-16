@@ -1,97 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="zh-CN" >
 <head>
 <meta charset="UTF-8">
 <title>璇璇</title>
+<style>
+/* 重置默认样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans:800&display=swap" rel="stylesheet">
+body {
+  background: #f5f5f5;
+  padding: 20px;
+  font-family: "Fira Sans", sans-serif;
+}
 
-<link rel="stylesheet" href="css/style.css">
+/* 瀑布流容器 */
+.gallery {
+  column-count: 4; /* 列数，可调整（手机会自动适配） */
+  column-gap: 15px; /* 列之间的间距 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* 照片卡片 */
+.photo {
+  break-inside: avoid; /* 防止照片被列分割 */
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: white;
+}
+
+/* 照片图片 */
+.photo__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photo__image img:hover {
+  transform: scale(1.02); /* hover轻微放大，增加互动感 */
+}
+
+/* 照片名称 */
+.photo__name {
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+/* 响应式适配（自动调整列数） */
+@media (max-width: 1024px) {
+  .gallery {
+    column-count: 3; /* 平板显示3列 */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    column-count: 2; /* 手机显示2列 */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 1; /* 小屏手机显示1列 */
+  }
+}
+</style>
 </head>
 <body>
 
 <div class="gallery">
-  <div class="gallery__strip__wrapper">
-    <div class="gallery__strip one">
-      <div class="photo">
-        <div class="photo__image"><img src="img/1.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/2.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/3.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/4.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-    </div>
+  <!-- 1-20号照片示例（可无限新增） -->
+  <div class="photo">
+    <div class="photo__image"><img src="img/1.jpg"/></div>
+    <div class="photo__name">待定</div>
   </div>
-  <div class="gallery__strip__wrapper">
-    <div class="gallery__strip two">
-      <div class="photo">
-        <div class="photo__image"><img src="img/5.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/6.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/7.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/8.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-    </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/2.jpg"/></div>
+    <div class="photo__name">待定</div>
   </div>
-  <div class="gallery__strip__wrapper">
-    <div class="gallery__strip three">
-      <div class="photo">
-        <div class="photo__image"><img src="img/9.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/10.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/11.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/12.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-    </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/3.jpg"/></div>
+    <div class="photo__name">待定</div>
   </div>
-  <div class="gallery__strip__wrapper">
-    <div class="gallery__strip four">
-      <div class="photo">
-        <div class="photo__image"><img src="img/13.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/14.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/15.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-      <div class="photo">
-        <div class="photo__image"><img src="img/16.jpg"/></div>
-        <div class="photo__name">待定</div>
-      </div>
-    </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/4.jpg"/></div>
+    <div class="photo__name">待定</div>
   </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/5.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/6.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/7.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo__image"><img src="img/8.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/9.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/10.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/11.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/12.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/13.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/14.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/15.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/16.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/17.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/18.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/19.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <div class="photo">
+    <div class="photo__image"><img src="img/20.jpg"/></div>
+    <div class="photo__name">待定</div>
+  </div>
+  <!-- 新增照片只需复制上面的photo块，改数字即可，可无限加 -->
 </div>
 
 </body>
